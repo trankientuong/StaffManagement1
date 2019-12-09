@@ -25,10 +25,17 @@ namespace WindowsFormsApp2
             this.btnShow.Click += BtnShow_Click;
             this.txtFind.Leave += TxtFind_Leave;
             this.txtFind.Enter += TxtFind_Enter;
-            this.btnSort.Click += Button1_Click;
+            this.txtFind.TextChanged += TxtFind_TextChanged;
+            this.btnSort.Click += btnSort_Click;
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void TxtFind_TextChanged(object sender, EventArgs e)
+        {
+            var db = new QLNV1Entities();           
+            grdStaff.DataSource = db.NHANVIEN.Where(x => x.name.Contains(txtFind.Text)).ToList();
+        }
+
+        private void btnSort_Click(object sender, EventArgs e)
         {
             var db = new QLNV1Entities();
             grdSalary.DataSource = db.SalaryStaff.OrderBy(r => r.salary).ToList();
@@ -60,11 +67,9 @@ namespace WindowsFormsApp2
         }
 
         private void BtnFind_Click(object sender, EventArgs e)
-        {
-          
+        {       
             var db = new QLNV1Entities();
-            grdStaff.DataSource = db.NHANVIEN.Where(x => x.name.Contains(this.txtFind.Text)).ToList();
-            
+            grdStaff.DataSource = db.NHANVIEN.Where(x => x.name.Contains(this.txtFind.Text)).ToList();           
         }
 
         private void GrdStaff_DoubleClick(object sender, EventArgs e)
