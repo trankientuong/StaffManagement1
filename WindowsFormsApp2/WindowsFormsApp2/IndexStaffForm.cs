@@ -23,6 +23,34 @@ namespace WindowsFormsApp2
             this.grdStaff.DoubleClick += GrdStaff_DoubleClick;
             this.btnFind.Click += BtnFind_Click;
             this.btnShow.Click += BtnShow_Click;
+            this.txtFind.Leave += TxtFind_Leave;
+            this.txtFind.Enter += TxtFind_Enter;
+            this.btnSort.Click += Button1_Click;
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            var db = new QLNV1Entities();
+            grdSalary.DataSource = db.SalaryStaff.OrderBy(r => r.salary).ToList();
+        }
+
+        private void TxtFind_Leave(object sender, EventArgs e)
+        {
+            if(txtFind.Text == "")
+            {
+                txtFind.Text = "Please enter name";
+                txtFind.ForeColor = Color.Gray;
+            }
+        }
+
+        private void TxtFind_Enter(object sender, EventArgs e)
+        {
+            if(txtFind.Text == "Please enter name")
+            {
+                txtFind.Text = "";
+                txtFind.ForeColor = Color.Gray;
+
+            }
         }
 
         private void BtnShow_Click(object sender, EventArgs e)
@@ -33,9 +61,10 @@ namespace WindowsFormsApp2
 
         private void BtnFind_Click(object sender, EventArgs e)
         {
+          
             var db = new QLNV1Entities();
-            
             grdStaff.DataSource = db.NHANVIEN.Where(x => x.name.Contains(this.txtFind.Text)).ToList();
+            
         }
 
         private void GrdStaff_DoubleClick(object sender, EventArgs e)

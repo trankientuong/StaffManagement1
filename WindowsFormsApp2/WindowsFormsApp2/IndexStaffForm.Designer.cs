@@ -41,6 +41,7 @@
             this.grdSalary = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnSort = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdStaff)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdSalary)).BeginInit();
@@ -114,10 +115,12 @@
             // 
             // txtFind
             // 
+            this.txtFind.ForeColor = System.Drawing.Color.Silver;
             this.txtFind.Location = new System.Drawing.Point(334, 27);
             this.txtFind.Name = "txtFind";
             this.txtFind.Size = new System.Drawing.Size(187, 20);
             this.txtFind.TabIndex = 4;
+            this.txtFind.Text = "Please enter name";
             // 
             // btnFind
             // 
@@ -171,12 +174,22 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "List All Staff";
             // 
+            // btnSort
+            // 
+            this.btnSort.Location = new System.Drawing.Point(608, 391);
+            this.btnSort.Name = "btnSort";
+            this.btnSort.Size = new System.Drawing.Size(75, 23);
+            this.btnSort.TabIndex = 11;
+            this.btnSort.Text = "Sort Salary";
+            this.btnSort.UseVisualStyleBackColor = true;
+            // 
             // IndexStaffForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 469);
+            this.Controls.Add(this.btnSort);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.grdSalary);
@@ -214,5 +227,6 @@
         private System.Windows.Forms.DataGridView grdSalary;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnSort;
     }
 }

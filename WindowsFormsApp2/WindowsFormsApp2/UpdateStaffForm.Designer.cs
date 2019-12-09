@@ -150,6 +150,7 @@
             // 
             // cboRoom
             // 
+            this.cboRoom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboRoom.FormattingEnabled = true;
             this.cboRoom.Location = new System.Drawing.Point(95, 239);
             this.cboRoom.Name = "cboRoom";
