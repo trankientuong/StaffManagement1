@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StaffManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="RoomRestaurant">
+          <Key>
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="RoomId" Type="int" Nullable="false" />
+          <Property Name="RoomName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Position" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalaryPosition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoomId" Type="int" Nullable="false" />
+          <Property Name="Salary" Type="float" />
+        </EntityType>
+        <EntityType Name="StaffRestaurant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fullname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="char" MaxLength="6" />
+          <Property Name="Birthday" Type="date" Nullable="false" />
+          <Property Name="Phonenumber" Type="varchar" MaxLength="12" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Room_Id" Type="int" />
+        </EntityType>
+        <Association Name="FK__SalaryPos__RoomI__164452B1">
+          <End Role="RoomRestaurant" Type="Self.RoomRestaurant" Multiplicity="1" />
+          <End Role="SalaryPosition" Type="Self.SalaryPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoomRestaurant">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="SalaryPosition">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StaffRest__Room___173876EA">
+          <End Role="RoomRestaurant" Type="Self.RoomRestaurant" Multiplicity="0..1" />
+          <End Role="StaffRestaurant" Type="Self.StaffRestaurant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoomRestaurant">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="StaffRestaurant">
+              <PropertyRef Name="Room_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StaffManagementModelStoreContainer">
+          <EntitySet Name="RoomRestaurant" EntityType="Self.RoomRestaurant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalaryPosition" EntityType="Self.SalaryPosition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StaffRestaurant" EntityType="Self.StaffRestaurant" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__SalaryPos__RoomI__164452B1" Association="Self.FK__SalaryPos__RoomI__164452B1">
+            <End Role="RoomRestaurant" EntitySet="RoomRestaurant" />
+            <End Role="SalaryPosition" EntitySet="SalaryPosition" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StaffRest__Room___173876EA" Association="Self.FK__StaffRest__Room___173876EA">
+            <End Role="RoomRestaurant" EntitySet="RoomRestaurant" />
+            <End Role="StaffRestaurant" EntitySet="StaffRestaurant" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StaffManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="RoomRestaurant">
+          <Key>
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="RoomId" Type="Int32" Nullable="false" />
+          <Property Name="RoomName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Position" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SalaryPositions" Relationship="Self.FK__SalaryPos__RoomI__164452B1" FromRole="RoomRestaurant" ToRole="SalaryPosition" />
+          <NavigationProperty Name="StaffRestaurants" Relationship="Self.FK__StaffRest__Room___173876EA" FromRole="RoomRestaurant" ToRole="StaffRestaurant" />
+        </EntityType>
+        <EntityType Name="SalaryPosition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoomId" Type="Int32" Nullable="false" />
+          <Property Name="Salary" Type="Double" />
+          <NavigationProperty Name="RoomRestaurant" Relationship="Self.FK__SalaryPos__RoomI__164452B1" FromRole="SalaryPosition" ToRole="RoomRestaurant" />
+        </EntityType>
+        <EntityType Name="StaffRestaurant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Phonenumber" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Room_Id" Type="Int32" />
+          <NavigationProperty Name="RoomRestaurant" Relationship="Self.FK__StaffRest__Room___173876EA" FromRole="StaffRestaurant" ToRole="RoomRestaurant" />
+        </EntityType>
+        <Association Name="FK__SalaryPos__RoomI__164452B1">
+          <End Role="RoomRestaurant" Type="Self.RoomRestaurant" Multiplicity="1" />
+          <End Role="SalaryPosition" Type="Self.SalaryPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoomRestaurant">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="SalaryPosition">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StaffRest__Room___173876EA">
+          <End Role="RoomRestaurant" Type="Self.RoomRestaurant" Multiplicity="0..1" />
+          <End Role="StaffRestaurant" Type="Self.StaffRestaurant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoomRestaurant">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="StaffRestaurant">
+              <PropertyRef Name="Room_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StaffManagementEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RoomRestaurants" EntityType="Self.RoomRestaurant" />
+          <EntitySet Name="SalaryPositions" EntityType="Self.SalaryPosition" />
+          <EntitySet Name="StaffRestaurants" EntityType="Self.StaffRestaurant" />
+          <AssociationSet Name="FK__SalaryPos__RoomI__164452B1" Association="Self.FK__SalaryPos__RoomI__164452B1">
+            <End Role="RoomRestaurant" EntitySet="RoomRestaurants" />
+            <End Role="SalaryPosition" EntitySet="SalaryPositions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StaffRest__Room___173876EA" Association="Self.FK__StaffRest__Room___173876EA">
+            <End Role="RoomRestaurant" EntitySet="RoomRestaurants" />
+            <End Role="StaffRestaurant" EntitySet="StaffRestaurants" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StaffManagementModelStoreContainer" CdmEntityContainer="StaffManagementEntities">
+          <EntitySetMapping Name="RoomRestaurants">
+            <EntityTypeMapping TypeName="StaffManagementModel.RoomRestaurant">
+              <MappingFragment StoreEntitySet="RoomRestaurant">
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalaryPositions">
+            <EntityTypeMapping TypeName="StaffManagementModel.SalaryPosition">
+              <MappingFragment StoreEntitySet="SalaryPosition">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StaffRestaurants">
+            <EntityTypeMapping TypeName="StaffManagementModel.StaffRestaurant">
+              <MappingFragment StoreEntitySet="StaffRestaurant">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Phonenumber" ColumnName="Phonenumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Room_Id" ColumnName="Room_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

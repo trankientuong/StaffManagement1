@@ -12,12 +12,16 @@ namespace WindowsFormsApp2
     using System;
     using System.Collections.Generic;
     
-    public partial class SalaryStaff
+    public partial class StaffRestaurant
     {
         public int Id { get; set; }
-        public double salary { get; set; }
+        public string Fullname { get; set; }
+        public string Gender { get; set; }
+        public System.DateTime Birthday { get; set; }
+        public string Phonenumber { get; set; }
+        public string Address { get; set; }
+        public Nullable<int> Room_Id { get; set; }
     
-        public virtual NHANVIEN NHANVIEN { get; set; }
-        public virtual PHONGBAN PHONGBAN { get; set; }
+        public virtual RoomRestaurant RoomRestaurant { get; set; }
     }
 }

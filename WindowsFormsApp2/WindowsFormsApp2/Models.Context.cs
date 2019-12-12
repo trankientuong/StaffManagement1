@@ -13,10 +13,10 @@ namespace WindowsFormsApp2
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QLNV1Entities : DbContext
+    public partial class StaffManagementEntities : DbContext
     {
-        public QLNV1Entities()
-            : base("name=QLNV1Entities")
+        public StaffManagementEntities()
+            : base("name=StaffManagementEntities")
         {
         }
     
@@ -25,8 +25,8 @@ namespace WindowsFormsApp2
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<NHANVIEN> NHANVIEN { get; set; }
-        public virtual DbSet<PHONGBAN> PHONGBAN { get; set; }
-        public virtual DbSet<SalaryStaff> SalaryStaff { get; set; }
+        public virtual DbSet<RoomRestaurant> RoomRestaurants { get; set; }
+        public virtual DbSet<SalaryPosition> SalaryPositions { get; set; }
+        public virtual DbSet<StaffRestaurant> StaffRestaurants { get; set; }
     }
 }

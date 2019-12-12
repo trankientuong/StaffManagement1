@@ -24,8 +24,8 @@ namespace WindowsFormsApp2
         private void CreateStaffForm_Load(object sender, EventArgs e)
         {
             this.cboRoom.DataSource = this.Business.GetRoom();
-            this.cboRoom.DisplayMember = "Room";
-            this.cboRoom.ValueMember = "id";
+            this.cboRoom.DisplayMember = "RoomName";
+            this.cboRoom.ValueMember = "RoomId";
         }
 
         private void BtnSave_Click(object sender, EventArgs e)

@@ -31,14 +31,14 @@ namespace WindowsFormsApp2
 
         private void TxtFind_TextChanged(object sender, EventArgs e)
         {
-            var db = new QLNV1Entities();           
-            grdStaff.DataSource = db.NHANVIEN.Where(x => x.name.Contains(txtFind.Text)).ToList();
+            var db = new StaffManagementEntities();           
+            grdStaff.DataSource = db.StaffRestaurants.Where(x => x.Fullname.Contains(txtFind.Text)).ToList();
         }
 
         private void btnSort_Click(object sender, EventArgs e)
         {
-            var db = new QLNV1Entities();
-            grdSalary.DataSource = db.SalaryStaff.OrderBy(r => r.salary).ToList();
+            var db = new StaffManagementEntities();
+            grdSalary.DataSource = db.SalaryPositions.OrderBy(r => r.Salary).ToList();
         }
 
         private void TxtFind_Leave(object sender, EventArgs e)
@@ -68,8 +68,8 @@ namespace WindowsFormsApp2
 
         private void BtnFind_Click(object sender, EventArgs e)
         {       
-            var db = new QLNV1Entities();
-            grdStaff.DataSource = db.NHANVIEN.Where(x => x.name.Contains(this.txtFind.Text)).ToList();           
+            var db = new StaffManagementEntities();
+            grdStaff.DataSource = db.StaffRestaurants.Where(x => x.Fullname.Contains(this.txtFind.Text)).ToList();           
         }
 
         private void GrdStaff_DoubleClick(object sender, EventArgs e)

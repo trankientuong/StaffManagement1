@@ -9,23 +9,24 @@ namespace WindowsFormsApp2
     public class StaffView
     {
         public int Id { get; set; }
-        public string name { get; set; }
-        public string gender { get; set; }
-        public System.DateTime dateofbirth { get; set; }
-        public string phonenumber { get; set; }
-        public string address { get; set; }
-        public Nullable<int> room { get; set; }
-        public string PHONGBAN { get; set; }
-        public StaffView(NHANVIEN staff)
+        public string Fullname { get; set; }
+        public string Gender { get; set; }
+        public System.DateTime Birthday { get; set; }
+        public string Phonenumber { get; set; }
+        public string Address { get; set; }
+        public Nullable<int> Room_Id { get; set; }
+
+        public string RoomRestaurant { get; set; }
+        public StaffView(StaffRestaurant staff)
         {
             this.Id = staff.Id;
-            this.name = staff.name;
-            this.gender = staff.gender;
-            this.dateofbirth = staff.dateofbirth;
-            this.phonenumber = staff.phonenumber;
-            this.address = staff.address;
-            this.room = staff.PHONGBAN.Id;
-            this.PHONGBAN = staff.PHONGBAN.room;
+            this.Fullname = staff.Fullname;
+            this.Gender = staff.Gender;
+            this.Birthday = staff.Birthday;
+            this.Phonenumber = staff.Phonenumber;
+            this.Address = staff.Address;
+            this.Room_Id = staff.RoomRestaurant.RoomId;
+            this.RoomRestaurant = staff.RoomRestaurant.RoomName;
         }
     }
       

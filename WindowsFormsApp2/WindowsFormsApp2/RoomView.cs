@@ -8,16 +8,17 @@ namespace WindowsFormsApp2
 {
     class RoomView
     {
-        public int Id { get; set; }
-        public string room { get; set; }
-        public string position { get; set; }
-        public int NHANVIEN { get; set; }
-        public RoomView(PHONGBAN room)
+        public int RoomId { get; set; }
+        public string RoomName { get; set; }
+        public string Position { get; set; }
+    
+        public int StaffRestaurant { get; set; }
+        public RoomView(RoomRestaurant room)
         {           
-            this.Id = room.Id;
-            this.room = room.room;
-            this.position = room.position;
-            this.NHANVIEN = room.NHANVIEN.Count;
+            this.RoomId = room.RoomId;
+            this.RoomName = room.RoomName;
+            this.Position = room.Position;
+            this.StaffRestaurant = room.StaffRestaurants.Count;
         }
     }
 }

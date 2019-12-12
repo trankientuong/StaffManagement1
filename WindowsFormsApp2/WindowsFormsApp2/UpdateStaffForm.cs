@@ -47,20 +47,20 @@ namespace WindowsFormsApp2
         private void UpdateStaffForm_Load(object sender, EventArgs e)
         {
             this.cboRoom.DataSource = this.Business.GetRoom();
-            this.cboRoom.DisplayMember = "Name";
-            this.cboRoom.ValueMember = "Id";
+            this.cboRoom.DisplayMember = "RoomName";
+            this.cboRoom.ValueMember = "RoomId";
             var staff = this.Business.Get1NhanVien(this.StaffId);
            // string birthday = String.Format(staff.dateofbirth.ToString());
-            this.txtName.Text = staff.name;
-            this.txtPhone.Text = staff.phonenumber;
-            this.txtAddress.Text = staff.address;
-            this.dtpBirthday.Text = String.Format(staff.dateofbirth.ToString());
-            this.cboRoom.SelectedValue = staff.room;
+            this.txtName.Text = staff.Fullname;
+            this.txtPhone.Text = staff.Phonenumber;
+            this.txtAddress.Text = staff.Address;
+            this.dtpBirthday.Text = String.Format(staff.Birthday.ToString());
+            this.cboRoom.SelectedValue = staff.Room_Id;
             if (rbMale.Text == "Male")
             {
                 rbMale.Checked = true;
             }
-            if(rbFemale.Text == staff.gender)
+            if(rbFemale.Text == staff.Gender)
             {
                 rbFemale.Checked = true;
             }

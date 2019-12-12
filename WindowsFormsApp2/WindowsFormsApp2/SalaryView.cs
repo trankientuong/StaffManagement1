@@ -9,15 +9,16 @@ namespace WindowsFormsApp2
     public class SalaryView
     {
         public int Id { get; set; }
-        public string salary { get; set; }
+        public int RoomId { get; set; }
+        public string Salary { get; set; }
         
         
 
-        public SalaryView(SalaryStaff salary)
+        public SalaryView(SalaryPosition salary)
         {
             this.Id = salary.Id;
-
-            this.salary = string.Format("{0:##,##VNĐ}",salary.salary);
+            this.RoomId = salary.RoomId;
+            this.Salary = string.Format("{0:##,##VNĐ}",salary.Salary);
            
             
         }

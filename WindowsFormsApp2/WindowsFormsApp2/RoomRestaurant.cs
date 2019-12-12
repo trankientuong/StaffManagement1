@@ -12,17 +12,19 @@ namespace WindowsFormsApp2
     using System;
     using System.Collections.Generic;
     
-    public partial class NHANVIEN
+    public partial class RoomRestaurant
     {
-        public int Id { get; set; }
-        public string name { get; set; }
-        public string gender { get; set; }
-        public System.DateTime dateofbirth { get; set; }
-        public string phonenumber { get; set; }
-        public string address { get; set; }
-        public Nullable<int> room { get; set; }
+        public RoomRestaurant()
+        {
+            this.SalaryPositions = new HashSet<SalaryPosition>();
+            this.StaffRestaurants = new HashSet<StaffRestaurant>();
+        }
     
-        public virtual PHONGBAN PHONGBAN { get; set; }
-        public virtual SalaryStaff SalaryStaff { get; set; }
+        public int RoomId { get; set; }
+        public string RoomName { get; set; }
+        public string Position { get; set; }
+    
+        public virtual ICollection<SalaryPosition> SalaryPositions { get; set; }
+        public virtual ICollection<StaffRestaurant> StaffRestaurants { get; set; }
     }
 }

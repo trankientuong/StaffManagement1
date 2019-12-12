@@ -26,7 +26,7 @@ namespace WindowsFormsApp2
         }
         private void loadAllRoom()
         {
-            //this.grdRoom.DataSource = this.Business.GetRoom();
+            this.grdRoom.DataSource = this.Business.GetRoom();
             var room = this.Business.GetRoom();
             var roomviews = new RoomView[room.Length];
             for(int i = 0; i < roomviews.Length; i++)
