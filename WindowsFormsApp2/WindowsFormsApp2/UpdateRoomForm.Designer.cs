@@ -28,98 +28,95 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateRoomForm));
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtPosition = new System.Windows.Forms.TextBox();
-            this.txtRoomName = new System.Windows.Forms.TextBox();
-            this.txtRoomId = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtRoomId = new System.Windows.Forms.TextBox();
+            this.txtRoomName = new System.Windows.Forms.TextBox();
+            this.txtPosition = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(166, 198);
+            this.btnClose.Location = new System.Drawing.Point(202, 199);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 15;
-            this.btnClose.Text = "Close";
+            this.btnClose.TabIndex = 43;
+            this.btnClose.Text = "CLOSE";
             this.btnClose.UseVisualStyleBackColor = true;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(47, 198);
+            this.btnSave.Location = new System.Drawing.Point(82, 199);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 14;
-            this.btnSave.Text = "Save";
+            this.btnSave.TabIndex = 29;
+            this.btnSave.Text = "SAVE";
             this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // txtPosition
-            // 
-            this.txtPosition.Location = new System.Drawing.Point(116, 141);
-            this.txtPosition.Name = "txtPosition";
-            this.txtPosition.Size = new System.Drawing.Size(100, 20);
-            this.txtPosition.TabIndex = 13;
-            // 
-            // txtRoomName
-            // 
-            this.txtRoomName.Location = new System.Drawing.Point(116, 88);
-            this.txtRoomName.Name = "txtRoomName";
-            this.txtRoomName.Size = new System.Drawing.Size(100, 20);
-            this.txtRoomName.TabIndex = 12;
-            // 
-            // txtRoomId
-            // 
-            this.txtRoomId.Location = new System.Drawing.Point(116, 39);
-            this.txtRoomId.Name = "txtRoomId";
-            this.txtRoomId.Size = new System.Drawing.Size(100, 20);
-            this.txtRoomId.TabIndex = 11;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(44, 144);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Position:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 91);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "RoomName:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 42);
+            this.label1.Location = new System.Drawing.Point(33, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
-            this.label1.TabIndex = 8;
+            this.label1.TabIndex = 44;
             this.label1.Text = "RoomId:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(33, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 13);
+            this.label2.TabIndex = 45;
+            this.label2.Text = "RoomName:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(33, 123);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 13);
+            this.label3.TabIndex = 46;
+            this.label3.Text = "Position:";
+            // 
+            // txtRoomId
+            // 
+            this.txtRoomId.Location = new System.Drawing.Point(117, 25);
+            this.txtRoomId.Name = "txtRoomId";
+            this.txtRoomId.Size = new System.Drawing.Size(100, 20);
+            this.txtRoomId.TabIndex = 47;
+            // 
+            // txtRoomName
+            // 
+            this.txtRoomName.Location = new System.Drawing.Point(117, 74);
+            this.txtRoomName.Name = "txtRoomName";
+            this.txtRoomName.Size = new System.Drawing.Size(100, 20);
+            this.txtRoomName.TabIndex = 48;
+            // 
+            // txtPosition
+            // 
+            this.txtPosition.Location = new System.Drawing.Point(117, 123);
+            this.txtPosition.Name = "txtPosition";
+            this.txtPosition.Size = new System.Drawing.Size(100, 20);
+            this.txtPosition.TabIndex = 49;
             // 
             // UpdateRoomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnSave);
+            this.ClientSize = new System.Drawing.Size(328, 239);
             this.Controls.Add(this.txtPosition);
             this.Controls.Add(this.txtRoomName);
             this.Controls.Add(this.txtRoomId);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnSave);
             this.Name = "UpdateRoomForm";
             this.Text = "UpdateRoomForm";
             this.ResumeLayout(false);
@@ -131,11 +128,12 @@
 
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtPosition;
-        private System.Windows.Forms.TextBox txtRoomName;
-        private System.Windows.Forms.TextBox txtRoomId;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtRoomId;
+        private System.Windows.Forms.TextBox txtRoomName;
+        private System.Windows.Forms.TextBox txtPosition;
+
     }
 }

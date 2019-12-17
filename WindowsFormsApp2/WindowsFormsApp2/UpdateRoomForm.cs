@@ -17,9 +17,9 @@ namespace WindowsFormsApp2
         public UpdateRoomForm(int id)
         {
             InitializeComponent();
+            this.RoomId = id;
             this.Business = new LogicLayer();
             this.Load += UpdateRoomForm_Load;
-            this.RoomId = id;
             this.btnSave.Click += btnSave_Click;
             this.btnClose.Click += btnClose_Click;
         }
@@ -39,11 +39,11 @@ namespace WindowsFormsApp2
         }
 
         void UpdateRoomForm_Load(object sender, EventArgs e)
-        {
-            var room = this.Business.get1Room(RoomId);
-            this.txtRoomId.Text = String.Format(room.RoomId.ToString());
-            this.txtRoomName.Text = room.RoomName;
-            this.txtPosition.Text = room.Position;
+        {          
+          var room = this.Business.get1Room(RoomId);
+          this.txtRoomId.Text = String.Format(room.RoomId.ToString());
+          this.txtRoomName.Text = room.RoomName;
+          this.txtPosition.Text = room.Position;
         }
     }
 }

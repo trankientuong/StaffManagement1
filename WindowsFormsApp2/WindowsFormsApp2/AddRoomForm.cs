@@ -17,8 +17,13 @@ namespace WindowsFormsApp2
         {
             InitializeComponent();
             this.Business = new LogicLayer();
-            this.btnClose.Click += btnClose_Click;
             this.btnSave.Click += btnSave_Click;
+            this.btnClose.Click += btnClose_Click;
+        }
+
+        void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         void btnSave_Click(object sender, EventArgs e)
@@ -30,11 +35,5 @@ namespace WindowsFormsApp2
             MessageBox.Show("Add room successfully");
             this.Close();
         }
-
-        void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
     }
 }
