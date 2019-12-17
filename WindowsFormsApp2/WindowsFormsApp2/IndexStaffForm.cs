@@ -134,6 +134,7 @@ namespace WindowsFormsApp2
             }
             this.grdSalary.DataSource = salaryviews;
         }
+      
        
     }
 }

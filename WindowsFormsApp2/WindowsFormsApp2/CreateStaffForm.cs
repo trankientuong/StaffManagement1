@@ -19,6 +19,11 @@ namespace WindowsFormsApp2
             this.Business = new LogicLayer();
             this.btnSave.Click += BtnSave_Click;
             this.Load += CreateStaffForm_Load;
+            this.btnClose.Click += btnClose_Click;
+        }
+        void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void CreateStaffForm_Load(object sender, EventArgs e)
@@ -30,23 +35,50 @@ namespace WindowsFormsApp2
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            string gender = "";
-            var name = this.txtName.Text;
-            if (rbMale.Checked)
+            if (checkData())
             {
-                gender = this.rbMale.Text;
+                string gender = "";
+                var name = this.txtName.Text;
+                if (rbMale.Checked)
+                {
+                    gender = this.rbMale.Text;
+                }
+                else
+                {
+                    gender = this.rbFemale.Text;
+                }
+                var dateofbirth = this.dtpBirthday.Value;
+                var phonenumber = this.txtPhone.Text;
+                var address = this.txtAddress.Text;
+                var room = (int)this.cboRoom.SelectedValue;
+                this.Business.CreateStaff(name, gender, dateofbirth, phonenumber, address, room);
+                MessageBox.Show("Create successfully");
+                this.Close();
             }
             else
             {
-                gender = this.rbFemale.Text;
+                MessageBox.Show("Please entered all information");
             }
-            var dateofbirth = this.dtpBirthday.Value;
-            var phonenumber = this.txtPhone.Text;
-            var address = this.txtAddress.Text;
-            var room = (int)this.cboRoom.SelectedValue;
-            this.Business.CreateStaff(name, gender, dateofbirth, phonenumber, address, room);
-            MessageBox.Show("Create successfully");
-            this.Close();
+        }
+
+        public bool checkData()
+        {
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                MessageBox.Show("Please entered a name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtPhone.Text))
+            {
+                MessageBox.Show("Please entered a phone", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtAddress.Text))
+            {
+                MessageBox.Show("Please entered a phone", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
         }
     }
 }

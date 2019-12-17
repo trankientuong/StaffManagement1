@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateStaffForm));
             this.btnSave = new System.Windows.Forms.Button();
             this.cboRoom = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,6 +43,7 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
+            this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSave
@@ -166,11 +168,21 @@
             this.txtAddress.Size = new System.Drawing.Size(200, 20);
             this.txtAddress.TabIndex = 13;
             // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(188, 293);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 14;
+            this.btnClose.Text = "CLOSE";
+            this.btnClose.UseVisualStyleBackColor = true;
+            // 
             // CreateStaffForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(321, 328);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtName);
@@ -185,6 +197,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboRoom);
             this.Controls.Add(this.btnSave);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreateStaffForm";
             this.Text = "Add Staff";
             this.ResumeLayout(false);
@@ -208,5 +221,6 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.TextBox txtAddress;
+        private System.Windows.Forms.Button btnClose;
     }
 }

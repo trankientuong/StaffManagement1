@@ -64,5 +64,38 @@ namespace WindowsFormsApp2
             
             return db.SalaryPositions.ToArray();
         }
+        public void CreateRoom(int id,string roomname,string position)
+        {
+            var db = new StaffManagementEntities();
+            var newRoom = new RoomRestaurant();
+            newRoom.RoomId = id;
+            newRoom.RoomName = roomname;
+            newRoom.Position = position;
+            db.RoomRestaurants.Add(newRoom);
+            db.SaveChanges();
+        }
+
+        public void UpdateRoom(int id, string roomname, string position)
+        {
+            var db = new StaffManagementEntities();
+            var oldRoom = new RoomRestaurant();
+            oldRoom.RoomName = roomname;
+            oldRoom.Position = position;
+            db.Entry(oldRoom).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+        }
+        public void DeleteRoom(int id)
+        {
+            var db = new StaffManagementEntities();
+            var room = db.RoomRestaurants.Find(id);
+            db.RoomRestaurants.Remove(room);
+            db.SaveChanges();
+        }
+        public RoomRestaurant get1Room(int id)
+        {
+            var db = new StaffManagementEntities();
+           var room = db.RoomRestaurants.Find(id);
+           return room;
+        }
     }
 }

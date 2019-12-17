@@ -87,6 +87,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddRoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRoomForm.Designer.cs">
+      <DependentUpon>AddRoomForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateStaffForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,16 +116,19 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Models.Context.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Models.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Models.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Models.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Models.edmx</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -131,22 +140,34 @@
     </Compile>
     <Compile Include="RoomRestaurant.cs">
       <DependentUpon>Models.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="RoomView.cs" />
     <Compile Include="SalaryPosition.cs">
       <DependentUpon>Models.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="SalaryView.cs" />
     <Compile Include="StaffRestaurant.cs">
       <DependentUpon>Models.tt</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="StaffView.cs" />
+    <Compile Include="UpdateRoomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateRoomForm.Designer.cs">
+      <DependentUpon>UpdateRoomForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateStaffForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UpdateStaffForm.Designer.cs">
       <DependentUpon>UpdateStaffForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddRoomForm.resx">
+      <DependentUpon>AddRoomForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateStaffForm.resx">
       <DependentUpon>CreateStaffForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,25 +187,32 @@
     <EmbeddedResource Include="RoomForm.resx">
       <DependentUpon>RoomForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UpdateRoomForm.resx">
+      <DependentUpon>UpdateRoomForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdateStaffForm.resx">
       <DependentUpon>UpdateStaffForm.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Models.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Models.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EntityDeploy>
     <None Include="Models.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Models.edmx</DependentUpon>
       <LastGenOutput>Models.Context.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Models.edmx.diagram">
       <DependentUpon>Models.edmx</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Models.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Models.edmx</DependentUpon>
       <LastGenOutput>Models.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -222,10 +250,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="StaffManagement.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="StaffManagement_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>StaffManagement.mdf</DependentUpon>
     </Content>
   </ItemGroup>
