@@ -21,6 +21,12 @@ namespace WindowsFormsApp2
             this.StaffId = id;
             this.Load += UpdateStaffForm_Load;
             this.btnSave.Click += BtnSave_Click;
+            this.btnClose.Click += btnClose_Click;
+        }
+
+        void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
