@@ -18,7 +18,7 @@ namespace WindowsFormsApp2
         {
             this.Id = salary.Id;
             this.RoomId = salary.RoomId;
-            this.Salary = string.Format("{0:##,##VNĐ}",salary.Salary);
+            this.Salary = string.Format(salary.Salary.ToString());
            
             
         }
