@@ -218,6 +218,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "IndexStaffForm";
             this.Text = "List All Staff and Salary";
             ((System.ComponentModel.ISupportInitialize)(this.grdStaff)).EndInit();

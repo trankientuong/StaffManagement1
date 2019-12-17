@@ -85,6 +85,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.grdRoom);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "RoomForm";
             this.Text = "RoomForm";
             ((System.ComponentModel.ISupportInitialize)(this.grdRoom)).EndInit();

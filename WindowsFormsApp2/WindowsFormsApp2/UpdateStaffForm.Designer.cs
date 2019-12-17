@@ -187,6 +187,7 @@
             this.Controls.Add(this.cboRoom);
             this.Controls.Add(this.btnSave);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "UpdateStaffForm";
             this.Text = "Update Staff";
             this.ResumeLayout(false);
