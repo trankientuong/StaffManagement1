@@ -24,17 +24,9 @@ namespace WindowsFormsApp2
             this.btnFind.Click += BtnFind_Click;
             this.btnShow.Click += BtnShow_Click;
             this.txtFind.Leave += TxtFind_Leave;
-            this.txtFind.Enter += TxtFind_Enter;
-            this.txtFind.TextChanged += TxtFind_TextChanged;
+            this.txtFind.Enter += TxtFind_Enter;          
             this.btnSort.Click += btnSort_Click;
         }
-
-        private void TxtFind_TextChanged(object sender, EventArgs e)
-        {
-            var db = new StaffManagementEntities();           
-            grdStaff.DataSource = db.StaffRestaurants.Where(x => x.Fullname.Contains(txtFind.Text)).ToList();
-        }
-
         private void btnSort_Click(object sender, EventArgs e)
         {
             var db = new StaffManagementEntities();
@@ -45,14 +37,14 @@ namespace WindowsFormsApp2
         {
             if(txtFind.Text == "")
             {
-                txtFind.Text = "Please enter name";
+                txtFind.Text = "Please enter id";
                 txtFind.ForeColor = Color.Gray;
             }
         }
 
         private void TxtFind_Enter(object sender, EventArgs e)
         {
-            if(txtFind.Text == "Please enter name")
+            if(txtFind.Text == "Please enter id")
             {
                 txtFind.Text = "";
                 txtFind.ForeColor = Color.Gray;
@@ -67,9 +59,26 @@ namespace WindowsFormsApp2
         }
 
         private void BtnFind_Click(object sender, EventArgs e)
-        {       
-            var db = new StaffManagementEntities();
-            grdStaff.DataSource = db.StaffRestaurants.Where(x => x.Fullname.Contains(this.txtFind.Text)).ToList();           
+        {
+            grdStaff.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            try
+            {
+                foreach (DataGridViewRow row in grdStaff.Rows)
+                {
+                    if (row.Cells[0].Value.ToString().Equals(txtFind.Text.ToLower()))
+                    {
+                        row.Selected = true;
+                        grdStaff.CurrentCell = row.Cells[1];
+                        return;
+                    }
+                }
+                throw new Exception();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("This id does not exist");
+                grdStaff.ClearSelection();
+            }         
         }
 
         private void GrdStaff_DoubleClick(object sender, EventArgs e)

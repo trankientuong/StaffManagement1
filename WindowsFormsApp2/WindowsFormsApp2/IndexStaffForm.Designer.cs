@@ -123,16 +123,16 @@
             // txtFind
             // 
             this.txtFind.ForeColor = System.Drawing.Color.Silver;
-            this.txtFind.Location = new System.Drawing.Point(334, 27);
+            this.txtFind.Location = new System.Drawing.Point(351, 29);
             this.txtFind.Name = "txtFind";
             this.txtFind.Size = new System.Drawing.Size(187, 20);
             this.txtFind.TabIndex = 4;
-            this.txtFind.Text = "Please enter name";
+            this.txtFind.Text = "Please enter id";
             // 
             // btnFind
             // 
             this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFind.Location = new System.Drawing.Point(527, 24);
+            this.btnFind.Location = new System.Drawing.Point(544, 27);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(75, 23);
             this.btnFind.TabIndex = 5;
@@ -171,9 +171,9 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.label3.Location = new System.Drawing.Point(242, 29);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 17);
+            this.label3.Size = new System.Drawing.Size(109, 17);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Find Staffs:";
+            this.label3.Text = "Find Id Staffs:";
             // 
             // label4
             // 
@@ -216,7 +216,6 @@
             this.Controls.Add(this.grdStaff);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "IndexStaffForm";
