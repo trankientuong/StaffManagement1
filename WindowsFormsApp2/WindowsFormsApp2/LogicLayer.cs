@@ -79,6 +79,7 @@ namespace WindowsFormsApp2
         {
             var db = new StaffManagementEntities();
             var oldRoom = new RoomRestaurant();
+            oldRoom.RoomId = id;
             oldRoom.RoomName = roomname;
             oldRoom.Position = position;
             db.Entry(oldRoom).State = System.Data.Entity.EntityState.Modified;

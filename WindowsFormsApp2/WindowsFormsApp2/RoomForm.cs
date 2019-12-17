@@ -42,12 +42,17 @@ namespace WindowsFormsApp2
 
         void btnDelete_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Do you want to delete this ?","Confirm",MessageBoxButtons.YesNo)== DialogResult.Yes)
+            if (grdRoom.SelectedRows.Count == 1)
             {
-                var room = (RoomView)grdRoom.SelectedRows[0].DataBoundItem;
-                this.Business.DeleteRoom(room.RoomId);
-                MessageBox.Show("Delete successfully");
-                this.loadAllRoom();
+
+
+                if (MessageBox.Show("Do you want to delete this ?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    var room = (RoomView)grdRoom.SelectedRows[0].DataBoundItem;
+                    this.Business.DeleteRoom(room.RoomId);
+                    MessageBox.Show("Delete successfully");
+                    this.loadAllRoom();
+                }
             }
         }
 
